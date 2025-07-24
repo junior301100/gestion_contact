@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,7 +27,7 @@ if (isset($_POST['ajouter'])) {
 
     if (!empty($_FILES['photo']['name'])) {
         $photoName = basename($_FILES['photo']['name']);
-        $photoName = preg_replace("/[^a-zA-Z0-9\.\-_]/", "_", $photoName);
+        $photoName = preg_replace("/[^a-zA-Z0-9\.\-]/", "", $photoName);
         $photoPath = "uploads/" . $photoName;
 
         if (move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
